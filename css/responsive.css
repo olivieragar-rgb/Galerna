@@ -1,27 +1,247 @@
 /* ============================================
-   CÍA LA GALERNA — Responsive (ajustes globales)
-   Los responsive de cada sección están en secciones.css y carpa.css
-   Este archivo cubre ajustes transversales
+   CÍA LA GALERNA — Responsive
    ============================================ */
 
-@media (max-width: 768px) {
-  .seccion-titulo {
-    font-size: clamp(1.5rem, 7vw, 2.5rem);
+/* ---- Hamburger button (hidden on desktop) ---- */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 210;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-crema);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ================================================
+   TABLET  (≤ 900px)
+   ================================================ */
+@media (max-width: 900px) {
+  /* Nav: show hamburger, drawer menu */
+  .nav-hamburger {
+    display: flex;
   }
 
-  #contacto {
-    padding: var(--espacio-l) var(--espacio-s);
+  #nav {
+    padding: 1rem 1.6rem;
   }
 
-  .contacto-links {
+  #nav.nav-solida {
+    padding: 0.7rem 1.6rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100vh;
     flex-direction: column;
-    align-items: center;
+    gap: 0;
+    background: rgba(13, 13, 13, 0.98);
+    backdrop-filter: blur(16px);
+    padding: 5rem 2rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 200;
+    border-left: 1px solid rgba(196, 153, 59, 0.1);
   }
 
-  .contacto-btn {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
+  .nav-links.nav-open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(245, 230, 200, 0.06);
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+  }
+
+  .nav-links .nav-cta {
+    margin-top: 0.8rem;
+    padding-top: 0.9rem;
+  }
+
+  .nav-links .nav-cta a {
+    display: inline-block;
+  }
+
+  /* Hero */
+  #hero {
+    min-height: 100svh;
+  }
+
+  .hero-titulo {
+    font-size: clamp(2.2rem, 12vw, 4rem);
+  }
+
+  .hero-subtitulo {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+  }
+
+  .hero-cta {
+    font-size: 0.65rem;
+    padding: 0.6rem 1.8rem;
+  }
+}
+
+/* ================================================
+   MOBILE  (≤ 600px)
+   ================================================ */
+@media (max-width: 600px) {
+  /* Sections */
+  .sec-content {
+    padding: 3rem 6vw;
+    gap: 1rem;
+  }
+
+  .sec-content-centrado {
+    padding: 3rem 6vw;
+  }
+
+  .sec-titulo {
+    font-size: clamp(1.4rem, 7vw, 2.2rem);
+  }
+
+  .sec-descripcion {
+    font-size: 0.78rem;
+  }
+
+  /* Carousel: softer edge blur on mobile */
+  .sec-media .carousel::after {
+    box-shadow:
+      inset  16px  0 16px -6px var(--color-negro),
+      inset -16px  0 16px -6px var(--color-negro),
+      inset  0  16px 16px -6px var(--color-negro),
+      inset  0 -16px 16px -6px var(--color-negro);
+  }
+
+  /* Carousel arrows: smaller */
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+    opacity: 0.7;
+  }
+
+  .carousel:hover .carousel-arrow {
+    opacity: 1;
+  }
+
+  /* Popup modal */
+  .popup-panel {
+    padding: 2rem 1.4rem;
+    max-height: 88vh;
+    width: 94vw;
+  }
+
+  .popup-title {
+    font-size: 0.85rem;
+  }
+
+  .popup-list li {
+    font-size: 0.78rem;
+  }
+
+  /* Dragona */
+  .dragona-titulo {
+    font-size: clamp(1.5rem, 7vw, 2.5rem) !important;
+  }
+
+  .dragona-galeria {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .dragona-content {
+    padding: 3rem 1.4rem;
+  }
+
+  /* Talleres list */
+  .talleres-lista li {
+    font-size: 0.75rem;
+  }
+
+  /* Contacto / nosotros */
+  .contacto-lista {
+    gap: 0.6rem;
+  }
+
+  .contacto-item {
+    font-size: 0.75rem;
+  }
+
+  /* WhatsApp float: avoid overlap with content */
+  .whatsapp-float {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  /* Footer */
+  .footer-texto {
+    font-size: 0.65rem;
+  }
+
+  /* Edge blur on talleres & contacto image */
+  .talleres-imagen::after,
+  .sec-media-tall::after {
+    box-shadow:
+      inset  16px  0 16px -6px var(--color-negro),
+      inset -16px  0 16px -6px var(--color-negro),
+      inset  0  16px 16px -6px var(--color-negro),
+      inset  0 -16px 16px -6px var(--color-negro);
+  }
+}
+
+/* ================================================
+   VERY SMALL  (≤ 380px)
+   ================================================ */
+@media (max-width: 380px) {
+  .hero-titulo {
+    font-size: clamp(1.8rem, 11vw, 2.8rem);
+  }
+
+  .sec-content {
+    padding: 2.4rem 5vw;
+  }
+
+  .nav-links {
+    width: 100vw;
+  }
+
+  .popup-panel {
+    padding: 1.6rem 1rem;
   }
 }
 
@@ -31,9 +251,5 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .scroll-hint {
-    animation: none;
   }
 }
