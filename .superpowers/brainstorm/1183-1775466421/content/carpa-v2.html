@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background:#020608; margin:0; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; font-family:Georgia,serif; }
+  h2 { color:#f5e6c8; text-align:center; margin:1.5rem 0 0.3rem; font-size:1.3rem; letter-spacing:0.05em; }
+  .sub { color:#888; text-align:center; font-size:0.8rem; margin:0 0 1.2rem; font-style:italic; }
+  .note { color:#555; font-size:0.72rem; text-align:center; margin-top:1rem; max-width:560px; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<h2>Carpa La Galerna — diseño refinado v2</h2>
+<p class="sub">Curvas orgánicas · puertas abiertas con telas enganchadas · pliegues de tela · cielo estrellado</p>
+
+<svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" style="width:min(560px,95vw);display:block">
+<defs>
+  <!-- Cielo nocturno -->
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#010305"/>
+    <stop offset="55%"  stop-color="#05070f"/>
+    <stop offset="100%" stop-color="#0d070e"/>
+  </linearGradient>
+
+  <!-- Suelo -->
+  <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#1c1308"/>
+    <stop offset="100%" stop-color="#060303"/>
+  </linearGradient>
+
+  <!-- Glow rojo sobre carpa -->
+  <radialGradient id="glowRed" cx="50%" cy="48%" r="32%">
+    <stop offset="0%"   stop-color="#5c0f0f" stop-opacity="0.28"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+
+  <!-- Glow interior puertas -->
+  <radialGradient id="glowDoor" cx="50%" cy="72%" r="50%">
+    <stop offset="0%"   stop-color="#f5c542" stop-opacity="0.85"/>
+    <stop offset="30%"  stop-color="#e8a317" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+
+  <!-- Sombra lateral cuerpo carpa -->
+  <linearGradient id="shadowSide" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#000" stop-opacity="0.6"/>
+    <stop offset="22%"  stop-color="transparent"/>
+    <stop offset="78%"  stop-color="transparent"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.7"/>
+  </linearGradient>
+
+  <!-- Sombra superior cuerpo -->
+  <linearGradient id="shadowTop" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#000" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </linearGradient>
+
+  <!-- Degradado sector toldo (highlight desde pico) -->
+  <radialGradient id="awningLight" cx="50%" cy="0%" r="100%">
+    <stop offset="0%"   stop-color="white" stop-opacity="0.07"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+
+  <!-- Clip cuerpo -->
+  <clipPath id="clipBody">
+    <rect x="152" y="160" width="256" height="158"/>
+  </clipPath>
+
+  <!-- Clip toldo (para que los sectores no se salgan de las curvas) -->
+  <clipPath id="clipAwning">
+    <path d="M 280,72 C 260,100 208,132 152,162 Q 280,175 408,162 C 352,132 300,100 280,72 Z"/>
+  </clipPath>
+
+</defs>
+
+<!-- ══════════ CIELO ══════════ -->
+<rect width="560" height="380" fill="url(#sky)"/>
+
+<!-- Estrellas — dispersas, tamaños y opacidades variados -->
+<g fill="white">
+  <circle cx="18"  cy="14"  r="1.1" opacity="0.65"/>
+  <circle cx="45"  cy="6"   r="1.4" opacity="0.8"/>
+  <circle cx="82"  cy="22"  r="0.7" opacity="0.4"/>
+  <circle cx="118" cy="9"   r="1.2" opacity="0.7"/>
+  <circle cx="145" cy="30"  r="0.8" opacity="0.35"/>
+  <circle cx="172" cy="14"  r="0.6" opacity="0.45"/>
+  <circle cx="38"  cy="52"  r="0.7" opacity="0.3"/>
+  <circle cx="96"  cy="48"  r="1.0" opacity="0.5"/>
+  <!-- Left zone — visible next to tent -->
+  <circle cx="58"  cy="120" r="0.8" opacity="0.35"/>
+  <circle cx="22"  cy="98"  r="1.1" opacity="0.55"/>
+  <circle cx="85"  cy="165" r="0.7" opacity="0.3"/>
+  <circle cx="35"  cy="210" r="0.9" opacity="0.4"/>
+  <!-- Right zone -->
+  <circle cx="500" cy="120" r="0.9" opacity="0.4"/>
+  <circle cx="535" cy="85"  r="1.2" opacity="0.6"/>
+  <circle cx="520" cy="195" r="0.7" opacity="0.3"/>
+  <circle cx="475" cy="160" r="0.8" opacity="0.35"/>
+  <!-- Top center -->
+  <circle cx="210" cy="18"  r="0.9" opacity="0.5"/>
+  <circle cx="258" cy="8"   r="1.3" opacity="0.75"/>
+  <circle cx="318" cy="22"  r="0.7" opacity="0.4"/>
+  <circle cx="360" cy="12"  r="1.0" opacity="0.6"/>
+  <circle cx="408" cy="28"  r="0.8" opacity="0.45"/>
+  <circle cx="462" cy="10"  r="1.4" opacity="0.8"/>
+  <circle cx="510" cy="19"  r="0.9" opacity="0.55"/>
+  <circle cx="545" cy="7"   r="1.1" opacity="0.65"/>
+  <!-- Small scattered -->
+  <circle cx="130" cy="58"  r="0.5" opacity="0.25"/>
+  <circle cx="420" cy="55"  r="0.5" opacity="0.28"/>
+  <circle cx="480" cy="42"  r="0.8" opacity="0.38"/>
+  <circle cx="12"  cy="75"  r="0.6" opacity="0.3"/>
+</g>
+
+<!-- Glow rojo ambiental sobre la carpa -->
+<rect width="560" height="380" fill="url(#glowRed)"/>
+
+<!-- Suelo -->
+<rect x="0" y="322" width="560" height="58" fill="url(#gnd)"/>
+<!-- Niebla baja sutilísima -->
+<ellipse cx="280" cy="326" rx="240" ry="16" fill="white" opacity="0.016"/>
+
+<!-- ══════════ MÁSTIL (sin bandera) ══════════ -->
+<!-- Trapecio muy delgado, se ensancha ligeramente hacia la base -->
+<path d="M 278,8 L 282,8 L 283,72 L 277,72 Z" fill="#1a0f06"/>
+<path d="M 279,8 L 280,8 L 281,72 L 280,72 Z" fill="#3a2510" opacity="0.6"/>
+<!-- Remate ornamental en la punta (pequeña esfera) -->
+<circle cx="280" cy="7" r="3.5" fill="#c4993b" opacity="0.8"/>
+<circle cx="280" cy="7" r="2"   fill="#e8c060" opacity="0.5"/>
+
+<!-- ══════════ POSTES LATERALES ══════════ -->
+<!-- Poste izquierdo — ligeramente cónico (más ancho en base) -->
+<path d="M 150,80 L 157,80 L 159,322 L 148,322 Z" fill="#1a0f06"/>
+<path d="M 151,80 L 153,80 L 154,322 L 149,322 Z" fill="#3a2510" opacity="0.5"/>
+<!-- Capiteles (decoración en la parte superior e inferior del poste) -->
+<rect x="146" y="78"  width="16" height="5" rx="2" fill="#2a1800" opacity="0.9"/>
+<rect x="146" y="78"  width="16" height="2" rx="1" fill="#c4993b" opacity="0.35"/>
+<rect x="144" y="318" width="20" height="6" rx="2" fill="#1a1006" opacity="0.9"/>
+
+<!-- Poste derecho -->
+<path d="M 403,80 L 410,80 L 412,322 L 401,322 Z" fill="#1a0f06"/>
+<path d="M 404,80 L 406,80 L 407,322 L 402,322 Z" fill="#3a2510" opacity="0.5"/>
+<rect x="398" y="78"  width="16" height="5" rx="2" fill="#2a1800" opacity="0.9"/>
+<rect x="398" y="78"  width="16" height="2" rx="1" fill="#c4993b" opacity="0.35"/>
+<rect x="396" y="318" width="20" height="6" rx="2" fill="#1a1006" opacity="0.9"/>
+
+<!-- ══════════ CABLES / GUY WIRES ══════════ -->
+<!-- Muy sutiles — dan sensación de estructura real -->
+<path d="M 153,83 C 195,92 240,82 280,72" stroke="#2a1a06" stroke-width="0.8" fill="none" opacity="0.5"/>
+<path d="M 407,83 C 365,92 320,82 280,72" stroke="#2a1a06" stroke-width="0.8" fill="none" opacity="0.5"/>
+
+<!-- ══════════ GUIRNALDAS DE LUCES ══════════ -->
+<!-- Catenary izquierda: poste → mástil -->
+<path d="M 155,84 C 200,106 245,92 280,78" stroke="#1e1206" stroke-width="1" fill="none" opacity="0.65"/>
+<!-- Catenary derecha: mástil → poste -->
+<path d="M 280,78 C 315,92 360,106 405,84" stroke="#1e1206" stroke-width="1" fill="none" opacity="0.65"/>
+
+<!-- Bulbos izquierdos -->
+<g opacity="0.8">
+  <circle cx="178" cy="94" r="2.5" fill="#f5c542"/>
+  <circle cx="178" cy="94" r="5.5" fill="#f5c542" opacity="0.1"/>
+  <circle cx="203" cy="100" r="2.5" fill="#f5c542"/>
+  <circle cx="228" cy="100" r="2.5" fill="#f5c542"/>
+  <circle cx="254" cy="93"  r="2.5" fill="#f5c542"/>
+</g>
+<!-- Bulbos derechos -->
+<g opacity="0.8">
+  <circle cx="306" cy="93"  r="2.5" fill="#f5c542"/>
+  <circle cx="332" cy="100" r="2.5" fill="#f5c542"/>
+  <circle cx="357" cy="100" r="2.5" fill="#f5c542"/>
+  <circle cx="382" cy="94"  r="2.5" fill="#f5c542"/>
+  <circle cx="382" cy="94"  r="5.5" fill="#f5c542" opacity="0.1"/>
+</g>
+
+<!-- ══════════ TOLDO — AWNING ══════════ -->
+
+<!-- Fondo base del toldo (muy oscuro) -->
+<path d="M 280,72 C 260,100 208,132 152,162 Q 280,174 408,162 C 352,132 300,100 280,72 Z"
+      fill="#0e0404"/>
+
+<!-- Sectores de rayas radiales desde el pico -->
+<!-- Los sectores van desde el pico hasta la base curva -->
+<!-- Los clipeo con clipAwning para que sigan las curvas -->
+<g clip-path="url(#clipAwning)">
+  <!-- 8 sectores: x base de 152 a 408, pico en 280,72 -->
+  <!-- x: 152, 185, 218, 251, 280(centro), 309, 342, 375, 408 -->
+  <!-- Distancias: 33, 33, 33, 29, 29, 33, 33, 33 -->
+  <polygon points="280,72  152,175  185,175" fill="#7a1818" opacity="0.9"/>
+  <polygon points="280,72  185,175  218,175" fill="#9a7418" opacity="0.85"/>
+  <polygon points="280,72  218,175  251,175" fill="#7a1818" opacity="0.9"/>
+  <polygon points="280,72  251,175  280,175" fill="#9a7418" opacity="0.85"/>
+  <polygon points="280,72  280,175  309,175" fill="#9a7418" opacity="0.85"/>
+  <polygon points="280,72  309,175  342,175" fill="#7a1818" opacity="0.9"/>
+  <polygon points="280,72  342,175  375,175" fill="#9a7418" opacity="0.85"/>
+  <polygon points="280,72  375,175  408,175" fill="#7a1818" opacity="0.9"/>
+
+  <!-- Highlight desde el pico (da sensación de tela bajo luz) -->
+  <path d="M 280,72 C 260,100 208,132 152,162 Q 280,174 408,162 C 352,132 300,100 280,72 Z"
+        fill="url(#awningLight)"/>
+</g>
+
+<!-- Contorno curvado del toldo (los dos lados) -->
+<path d="M 152,162 C 208,132 260,100 280,72" fill="none" stroke="#c4993b" stroke-width="1.3" opacity="0.6"/>
+<path d="M 280,72 C 300,100 352,132 408,162" fill="none" stroke="#c4993b" stroke-width="1.3" opacity="0.6"/>
+
+<!-- Costuras internas del toldo (sutiles) -->
+<line x1="280" y1="72" x2="218" y2="173" stroke="#c4993b" stroke-width="0.4" opacity="0.2"/>
+<line x1="280" y1="72" x2="342" y2="173" stroke="#c4993b" stroke-width="0.4" opacity="0.2"/>
+
+<!-- FLECOS DECORATIVOS — scalloped, irregulares, siguiendo la curva del borde -->
+<!-- Ruta base aproximada de la curva del borde: de 152,162 hasta 408,162 pasando por 280,174 -->
+<!-- Los flecos cuelgan de esta curva hacia abajo ~12px -->
+<!-- Para simular la curva hago los flecos centrales un poco más bajos -->
+<path d="
+  M 152,162
+  Q 159,175 166,163
+  Q 173,176 180,164
+  Q 187,177 194,165
+  Q 200,178 207,166
+  Q 213,179 220,168
+  Q 226,181 233,170
+  Q 239,183 246,172
+  Q 252,185 259,174
+  Q 265,186 272,175
+  Q 278,188 285,176
+  Q 291,188 298,175
+  Q 304,186 311,173
+  Q 317,184 324,171
+  Q 330,182 337,169
+  Q 343,180 350,167
+  Q 356,178 363,165
+  Q 369,176 376,163
+  Q 382,174 389,162
+  Q 395,172 401,162
+  Q 405,169 408,162
+" fill="#621010" stroke="#c4993b" stroke-width="0.9" stroke-opacity="0.5"/>
+
+<!-- ══════════ CUERPO DE LA CARPA ══════════ -->
+<rect x="152" y="160" width="256" height="162" fill="#0d0303"/>
+
+<!-- Rayas verticales -->
+<g clip-path="url(#clipBody)" opacity="0.72">
+  <!-- 13 rayas oscuro-rojas de 19.7px sobre fondo casi negro, cada 39.4px -->
+  <rect x="152" y="160" width="20" height="162" fill="#6b1515"/>
+  <rect x="192" y="160" width="20" height="162" fill="#6b1515"/>
+  <rect x="232" y="160" width="20" height="162" fill="#6b1515"/>
+  <rect x="272" y="160" width="20" height="162" fill="#6b1515"/>
+  <rect x="312" y="160" width="20" height="162" fill="#6b1515"/>
+  <rect x="352" y="160" width="20" height="162" fill="#6b1515"/>
+  <rect x="388" y="160" width="20" height="162" fill="#6b1515"/>
+</g>
+
+<!-- Sombras en los bordes del cuerpo (da volumen) -->
+<rect x="152" y="160" width="256" height="162" fill="url(#shadowSide)"/>
+<rect x="152" y="160" width="256" height="22"  fill="url(#shadowTop)"/>
+
+<!-- ══════════ PUERTA — INTERIOR ══════════ -->
+<!-- Marco de la entrada (pilares pequeños) -->
+<rect x="232" y="178" width="4" height="144" fill="#180a04" rx="1"/>
+<rect x="324" y="178" width="4" height="144" fill="#180a04" rx="1"/>
+<!-- Arco decorativo sobre la apertura -->
+<path d="M 232,188 Q 280,170 328,188" fill="none" stroke="#c4993b" stroke-width="1.2" opacity="0.4"/>
+
+<!-- Luz cálida del interior (visible a través de la apertura) -->
+<rect x="236" y="178" width="88" height="144" fill="url(#glowDoor)" opacity="0.5"/>
+<!-- Relleno interior cálido -->
+<rect x="236" y="178" width="88" height="144" fill="#1a0e04" opacity="0.8"/>
+<!-- Glow suave en el interior -->
+<ellipse cx="280" cy="270" rx="40" ry="50" fill="#f5c542" opacity="0.06"/>
+
+<!-- ══════════ TELA IZQUIERDA (enganchada y abierta) ══════════ -->
+<!-- La tela se abre desde el centro y está atada al lado izquierdo -->
+<!-- Shape: parte arriba del centro, barre hacia la izquierda, se estrecha en el enganche, cae suelta abajo -->
+
+<!-- Cuerpo principal de la tela izquierda -->
+<path d="
+  M 280,178
+  L 232,178
+  C 205,180 175,190 160,205
+  C 148,218 150,238 155,255
+  C 150,270 158,305 165,322
+  L 152,322
+  L 152,178
+  Z
+" fill="#5c1212"/>
+
+<!-- Pliegues de tela — fold lines más oscuras (radiando desde el punto de enganche) -->
+<!-- Enganche aprox en (155, 250) -->
+<path d="M 280,178 C 250,182 218,192 195,205 C 170,220 158,242 157,262" fill="none" stroke="#3a0a0a" stroke-width="1.4" opacity="0.65"/>
+<path d="M 265,178 C 236,183 205,194 183,208 C 162,224 154,248 156,272" fill="none" stroke="#3a0a0a" stroke-width="1.0" opacity="0.5"/>
+<path d="M 248,178 C 222,185 194,197 174,212 C 156,228 152,254 154,278" fill="none" stroke="#2a0808" stroke-width="0.8" opacity="0.4"/>
+<path d="M 232,180 C 210,188 185,200 168,216 C 154,232 152,258 155,285" fill="none" stroke="#2a0808" stroke-width="0.7" opacity="0.35"/>
+
+<!-- Highlight longitudinal de la tela (zona más iluminada del pliegue central) -->
+<path d="M 270,178 C 245,184 215,196 192,212 C 172,227 162,252 162,278" fill="none" stroke="#8a2a2a" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+
+<!-- Borde interior de la tela (donde se dobla contra el marco) -->
+<path d="M 280,178 C 278,200 275,240 272,280 C 270,300 268,318 268,322" fill="none" stroke="#400a0a" stroke-width="1" opacity="0.6"/>
+
+<!-- Ornamento de enganche — broche/nudo donde la tela se ata al poste -->
+<circle cx="155" cy="252" r="5.5" fill="#1a0f06" stroke="#c4993b" stroke-width="1.2" opacity="0.85"/>
+<circle cx="155" cy="252" r="2.5" fill="#c4993b" opacity="0.6"/>
+<!-- Cordón decorativo colgante (tassel) -->
+<path d="M 155,258 Q 153,268 155,278 Q 152,285 156,292" fill="none" stroke="#c4993b" stroke-width="0.9" opacity="0.5"/>
+<circle cx="155" cy="294" r="2" fill="#c4993b" opacity="0.4"/>
+
+<!-- ══════════ TELA DERECHA (enganchada y abierta) ══════════ -->
+<!-- Simétrica a la izquierda alrededor de x=280 -->
+
+<path d="
+  M 280,178
+  L 328,178
+  C 355,180 385,190 400,205
+  C 412,218 410,238 405,255
+  C 410,270 402,305 395,322
+  L 408,322
+  L 408,178
+  Z
+" fill="#5a1010"/>
+
+<!-- Pliegues tela derecha -->
+<path d="M 280,178 C 310,182 342,192 365,205 C 390,220 402,242 403,262" fill="none" stroke="#3a0a0a" stroke-width="1.4" opacity="0.65"/>
+<path d="M 295,178 C 324,183 355,194 377,208 C 398,224 406,248 404,272" fill="none" stroke="#3a0a0a" stroke-width="1.0" opacity="0.5"/>
+<path d="M 312,178 C 338,185 366,197 386,212 C 404,228 408,254 406,278" fill="none" stroke="#2a0808" stroke-width="0.8" opacity="0.4"/>
+<path d="M 328,180 C 350,188 375,200 392,216 C 406,232 408,258 405,285" fill="none" stroke="#2a0808" stroke-width="0.7" opacity="0.35"/>
+
+<!-- Highlight tela derecha -->
+<path d="M 290,178 C 315,184 345,196 368,212 C 388,227 398,252 398,278" fill="none" stroke="#8a2a2a" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+<path d="M 280,178 C 282,200 285,240 288,280 C 290,300 292,318 292,322" fill="none" stroke="#400a0a" stroke-width="1" opacity="0.6"/>
+
+<!-- Ornamento enganche derecho -->
+<circle cx="405" cy="252" r="5.5" fill="#1a0f06" stroke="#c4993b" stroke-width="1.2" opacity="0.85"/>
+<circle cx="405" cy="252" r="2.5" fill="#c4993b" opacity="0.6"/>
+<!-- Cordón decorativo -->
+<path d="M 405,258 Q 407,268 405,278 Q 408,285 404,292" fill="none" stroke="#c4993b" stroke-width="0.9" opacity="0.5"/>
+<circle cx="405" cy="294" r="2" fill="#c4993b" opacity="0.4"/>
+
+<!-- ══════════ RENDIJA DE LUZ entre las telas ══════════ -->
+<!-- La rendija es el espacio que queda en el centro donde aún se ve luz interior -->
+<rect x="268" y="178" width="24" height="144" fill="url(#glowDoor)" opacity="0.3"/>
+<!-- Línea de luz más brillante -->
+<rect x="277" y="178" width="6" height="144" fill="#f5c542" opacity="0.55"/>
+<!-- Halo de la rendija -->
+<rect x="268" y="178" width="24" height="144" fill="#f5c542" opacity="0.08"/>
+<!-- Reflejo en el suelo -->
+<ellipse cx="280" cy="325" rx="28" ry="7" fill="#f5c542" opacity="0.12"/>
+
+<!-- ══════════ BOMBILLAS en los flecos ══════════ -->
+<g>
+  <circle cx="166" cy="167" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="166" cy="167" r="9"  fill="#f5c542" opacity="0.1"/>
+  <circle cx="193" cy="163" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="220" cy="160" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="246" cy="158" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="264" cy="157" r="3.5" fill="#f5c542" opacity="0.9"/>
+  <circle cx="280" cy="156" r="4.5" fill="#f5c542" opacity="0.95"/>
+  <circle cx="280" cy="156" r="11"  fill="#f5c542" opacity="0.12"/>
+  <circle cx="296" cy="157" r="3.5" fill="#f5c542" opacity="0.9"/>
+  <circle cx="314" cy="158" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="340" cy="160" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="367" cy="163" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="394" cy="167" r="4"  fill="#f5c542" opacity="0.95"/>
+  <circle cx="394" cy="167" r="9"  fill="#f5c542" opacity="0.1"/>
+</g>
+
+<!-- ══════════ SCROLL HINT ══════════ -->
+<text x="280" y="349" text-anchor="middle" fill="#f5e6c8" font-size="9" opacity="0.4"
+      font-family="Georgia,serif" font-style="italic" letter-spacing="3.5">
+  ENTRA AL ESPECTÁCULO
+</text>
+<line x1="280" y1="353" x2="280" y2="362" stroke="#c4993b" stroke-width="0.9" opacity="0.3"/>
+<polygon points="277,362 283,362 280,367" fill="#c4993b" opacity="0.25"/>
+
+</svg>
+
+<p class="note">
+  Puertas abiertas con telas enganchadas a los lados · Pliegues radiales desde el punto de enganche ·
+  Flecos irregulares en borde del toldo · Curvas orgánicas en el awning · Sin bandera · Cielo estrellado visible
+</p>
+
+</body>
+</html>

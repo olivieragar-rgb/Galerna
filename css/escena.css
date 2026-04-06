@@ -1,0 +1,179 @@
+/* ============================================
+   CÍA LA GALERNA — escena.css
+   Ambiente scroll-driven: cielo, niebla, carpa
+   ============================================ */
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* El espaciador define la duración total del scroll */
+#espaciador {
+  height: 800vh;
+  position: relative;
+  pointer-events: none;
+}
+
+/* Escena fija: siempre ocupa toda la pantalla */
+#escena {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #050508;
+}
+
+/* ---- Cielo nocturno ---- */
+.cielo {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, #0a0820 0%, #050508 60%);
+}
+
+/* Las estrellas son divs generados por escena.js */
+.estrella {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: parpadeo var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: var(--opMin, 0.3); }
+  50%       { opacity: var(--opMax, 0.8); }
+}
+
+/* ---- Niebla baja ---- */
+.niebla {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  width: 140%;
+  height: 30%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(180, 160, 120, 0.16) 0%,
+    transparent 70%
+  );
+  animation: niebla-drift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes niebla-drift {
+  0%   { transform: translateX(0)   scaleX(1); }
+  100% { transform: translateX(5%)  scaleX(1.06); }
+}
+
+/* ---- Suelo oscuro ---- */
+.suelo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  background: linear-gradient(to top, #0a0505 0%, #0d0808 60%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ---- Contenedor de la carpa SVG ---- */
+#carpa-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%) scale(0.35);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+#carpa-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Interior (visible a partir de Fase 2) ---- */
+#interior {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#interior.visible {
+  pointer-events: auto;
+}
+
+.interior-fondo {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    #2a1a0a 0%,
+    #180d04 50%,
+    #0d0805 100%
+  );
+  opacity: 0;
+}
+
+/* ---- Foco cónico teatral ---- */
+.foco-cono {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* ---- Indicador de scroll ---- */
+#indicador-scroll {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgba(245, 230, 200, 0.55);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.indicador-flecha {
+  margin-top: 0.4rem;
+  animation: flotacion 1.6s ease-in-out infinite;
+}
+
+@keyframes flotacion {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
+/* ---- GPU hints ---- */
+#puerta-izq,
+#puerta-der,
+#luz-interior {
+  will-change: transform, opacity;
+}
+
+.cielo,
+.niebla {
+  will-change: transform;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .estrella,
+  .niebla,
+  .indicador-flecha {
+    animation: none;
+  }
+}

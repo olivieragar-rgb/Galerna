@@ -1,0 +1,53 @@
+/* ============================================
+   CÍA LA GALERNA — Variables CSS
+   Paleta basada en material visual real:
+   rojo vino + negro + rosa circo + crema
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+  /* --- Fondos --- */
+  --color-negro:        #0d0d0d;
+  --color-negro-suave:  #1a1a1a;
+  --color-negro-medio:  #2a1a1a;
+
+  /* --- Rojo protagonista (el carrito CIRCO, la chaqueta de Sergio) --- */
+  --color-rojo:         #c41e1e;
+  --color-rojo-oscuro:  #8b1a1a;
+  --color-rojo-vino:    #5c0f0f;
+
+  /* --- Rosa/magenta circo (los maillots de actuación) --- */
+  --color-rosa:         #e8739a;
+  --color-rosa-oscuro:  #c4547a;
+
+  /* --- Crema/pergamino (fondos claros, textos sobre oscuro) --- */
+  --color-crema:        #f5e6c8;
+  --color-crema-oscura: #e8d4a8;
+  --color-pergamino:    #d4b896;
+
+  /* --- Dorado solo como detalle --- */
+  --color-dorado:       #c4993b;
+  --color-dorado-suave: #d4a84b;
+
+  /* --- Tipografías --- */
+  --font-display: 'Cinzel Decorative', serif;   /* títulos circenses/medievales */
+  --font-body:    'IM Fell English', serif;      /* texto legible con carácter */
+  --font-system:  Georgia, 'Times New Roman', serif;
+
+  /* --- Sombras --- */
+  --sombra-roja:   0 4px 24px rgba(139, 26, 26, 0.5);
+  --sombra-calida: 0 4px 24px rgba(196, 153, 59, 0.3);
+  --sombra-oscura: 0 8px 32px rgba(0, 0, 0, 0.8);
+
+  /* --- Breakpoints --- */
+  --bp-mobile: 768px;
+  --bp-tablet: 1024px;
+
+  /* --- Espaciado --- */
+  --espacio-xs: 0.5rem;
+  --espacio-s:  1rem;
+  --espacio-m:  2rem;
+  --espacio-l:  4rem;
+  --espacio-xl: 8rem;
+}

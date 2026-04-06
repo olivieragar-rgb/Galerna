@@ -1,0 +1,201 @@
+/* ============================================
+   CÍA LA GALERNA — secciones-interior.css
+   Contenido que aparece dentro de la carpa
+   ============================================ */
+
+/* ---- Base de todas las secciones ---- */
+.seccion-interior {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding: 6vh 7vw;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.seccion-interior.activa {
+  pointer-events: auto;
+}
+
+/* ---- Imagen de sección ---- */
+.sec-imagen {
+  flex: 0 0 40%;
+  max-height: 68vh;
+  overflow: hidden;
+  border: 2px solid var(--color-dorado);
+  box-shadow: 0 0 35px rgba(196, 153, 59, 0.22), var(--sombra-oscura);
+  border-radius: 2px;
+}
+
+.sec-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(0.12) contrast(1.05);
+}
+
+/* ---- Texto ---- */
+.sec-texto {
+  flex: 0 0 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.sec-etiqueta {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+
+.sec-etiqueta::before,
+.sec-etiqueta::after {
+  content: "——";
+  opacity: 0.55;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.sec-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  color: var(--color-crema);
+  line-height: 1.15;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.75);
+  margin: 0;
+}
+
+.sec-descripcion {
+  font-family: var(--font-body);
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  color: rgba(245, 230, 200, 0.72);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 44ch;
+}
+
+.sec-cta {
+  display: inline-block;
+  padding: 0.55rem 2rem;
+  border: 1px solid rgba(196, 153, 59, 0.65);
+  color: var(--color-dorado);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.28s, color 0.28s, border-color 0.28s;
+  align-self: flex-start;
+  margin-top: 0.6rem;
+}
+
+.sec-cta:hover {
+  background: var(--color-dorado);
+  border-color: var(--color-dorado);
+  color: var(--color-negro);
+}
+
+/* ---- Talleres: tags ---- */
+.talleres-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.3rem 0;
+}
+
+.tag {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid rgba(139, 26, 26, 0.55);
+  color: rgba(245, 230, 200, 0.75);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  background: rgba(139, 26, 26, 0.12);
+}
+
+/* ---- Dragona: sección especial ---- */
+.seccion-dragona {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(180, 80, 140, 0.1) 0%,
+    transparent 65%
+  );
+}
+
+.dragona-titulo {
+  color: var(--color-rosa) !important;
+  text-shadow: 0 0 32px rgba(232, 115, 154, 0.38);
+}
+
+.dragona-etiqueta {
+  color: var(--color-rosa) !important;
+}
+
+.dragona-video {
+  width: 100%;
+  max-width: 460px;
+  max-height: 280px;
+  object-fit: cover;
+  border: 1px solid rgba(232, 115, 154, 0.28);
+  margin-top: 0.8rem;
+  display: block;
+  opacity: 0.68;
+}
+
+/* ---- Texto centrado (Dragona) ---- */
+.sec-texto-centrado {
+  align-items: center;
+  text-align: center;
+  flex: 0 0 65%;
+}
+
+.sec-texto-centrado .sec-descripcion {
+  max-width: 36ch;
+}
+
+/* ---- Nosotros: imagen dúo más alta ---- */
+.sec-imagen-duo {
+  max-height: 74vh;
+}
+
+/* ---- Contacto ---- */
+.contacto-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.4rem;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(245, 230, 200, 0.68);
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contacto-item:hover {
+  color: var(--color-crema);
+}
+
+.contacto-icon {
+  color: var(--color-dorado);
+  font-size: 0.95rem;
+}

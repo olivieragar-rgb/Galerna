@@ -1,0 +1,203 @@
+/* ============================================
+   CÍA LA GALERNA — hero.css
+   Sección hero: vídeo a pantalla completa
+   ============================================ */
+
+/* ---- Reset y scroll suave ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-negro);
+  overflow-x: hidden;
+}
+
+/* ---- Hero ---- */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.65;
+  transition: opacity 1.5s ease;
+}
+
+#hero-video-next {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.hero-spotlight-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 2s ease;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 8, 0.25) 0%,
+    rgba(5, 5, 8, 0.45) 50%,
+    rgba(5, 5, 8, 0.92) 100%
+  );
+}
+
+/* ---- Contenido hero ---- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0 2rem;
+}
+
+.hero-tag {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.hero-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 8rem);
+  color: var(--color-crema);
+  letter-spacing: 0.14em;
+  line-height: 1.0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+  /* Starts invisible — GSAP animates in */
+  opacity: 0;
+}
+
+.titulo-line {
+  display: block;
+}
+
+.titulo-line:first-child {
+  font-size: 0.55em;
+  letter-spacing: 0.5em;
+  color: rgba(245, 230, 200, 0.7);
+}
+
+.hero-subtitulo {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(245, 230, 200, 0.55);
+  margin: 0;
+  opacity: 0;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.7rem 2.4rem;
+  border: 1px solid rgba(196, 153, 59, 0.6);
+  color: var(--color-dorado);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+  opacity: 0;
+}
+
+.hero-cta:hover {
+  background: var(--color-dorado);
+  border-color: var(--color-dorado);
+  color: var(--color-negro);
+}
+
+/* ---- Flecha discreta ---- */
+.hero-arrow-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0;
+  animation: arrow-bob 2.4s ease-in-out infinite;
+  text-decoration: none;
+  transition: opacity 0.4s;
+}
+
+.hero-arrow-down svg {
+  display: block;
+}
+
+@keyframes arrow-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ---- Footer ---- */
+#footer {
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(196, 153, 59, 0.1);
+  background: var(--color-negro);
+}
+
+.footer-texto {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: rgba(245, 230, 200, 0.3);
+  margin: 0 0 0.5rem;
+}
+
+.footer-frase {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: rgba(196, 153, 59, 0.4);
+  margin: 0;
+}
+
+/* ---- Reducir movimiento ---- */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-line { animation: none; opacity: 0.5; }
+  html { scroll-behavior: auto; }
+}

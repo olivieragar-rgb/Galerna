@@ -1,0 +1,85 @@
+/* ============================================
+   CÍA LA GALERNA — Base & Reset
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Sin scroll-behavior: lo maneja GSAP */
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-negro);
+  color: var(--color-crema);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  /* Sin overflow-y hidden: GSAP ScrollTrigger necesita scroll nativo */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Utilidades de texto --- */
+.texto-display {
+  font-family: var(--font-display);
+}
+
+.texto-crema   { color: var(--color-crema); }
+.texto-rojo    { color: var(--color-rojo); }
+.texto-dorado  { color: var(--color-dorado); }
+.texto-rosa    { color: var(--color-rosa); }
+
+/* --- Separador ornamental --- */
+.ornamento {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  color: var(--color-dorado);
+  font-size: 1.2rem;
+}
+
+.ornamento::before,
+.ornamento::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-dorado), transparent);
+}
+
+/* ============================================
+   MEDIA QUERIES BASE (se rellenan por sección)
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+
+  body {
+    /* En móvil las animaciones GSAP se simplifican */
+  }
+}

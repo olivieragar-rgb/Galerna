@@ -1,0 +1,39 @@
+/* ============================================
+   CÍA LA GALERNA — Responsive (ajustes globales)
+   Los responsive de cada sección están en secciones.css y carpa.css
+   Este archivo cubre ajustes transversales
+   ============================================ */
+
+@media (max-width: 768px) {
+  .seccion-titulo {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+  }
+
+  #contacto {
+    padding: var(--espacio-l) var(--espacio-s);
+  }
+
+  .contacto-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacto-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+/* Prefers reduced motion — desactivar animaciones pesadas */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-hint {
+    animation: none;
+  }
+}

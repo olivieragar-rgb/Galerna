@@ -1,0 +1,102 @@
+<h2>Dos arquitecturas para la animación de la carpa</h2>
+<p class="subtitle">¿Cuál se acerca más a lo que tienes en mente?</p>
+
+<div class="split" style="gap:2rem;align-items:flex-start;margin-top:1.5rem">
+
+  <!-- OPCIÓN A — Lo que tenemos -->
+  <div class="mockup" data-choice="a" onclick="toggleSelect(this)" style="cursor:pointer;border:2px solid transparent;transition:border-color .2s" onmouseenter="this.style.borderColor='#888'" onmouseleave="this.style.borderColor='transparent'">
+    <div class="mockup-header" style="background:#2a2a2a;color:#aaa">LO QUE TENEMOS AHORA</div>
+    <div class="mockup-body" style="background:#111;padding:1rem;font-size:0.8rem">
+
+      <!-- Diagrama scroll vertical -->
+      <div style="display:flex;flex-direction:column;gap:4px;font-family:monospace;font-size:0.75rem">
+
+        <div style="background:#1a3a1a;border:1px solid #2a6a2a;padding:8px;color:#8f8">
+          <strong>PANTALLA 1 — #entrada</strong><br>
+          <span style="color:#666">Carpa SVG vista cenital (top-down)<br>
+          Logo flotando encima<br>
+          "Scroll para entrar"</span>
+        </div>
+
+        <div style="color:#555;text-align:center;font-size:1rem">↕ 200vh de scroll</div>
+
+        <div style="background:#1a2a3a;border:1px solid #2a4a6a;padding:8px;color:#88f">
+          <strong>#escena-principal (sticky)</strong><br>
+          <span style="color:#666">Las dos mitades se abren ±600px<br>
+          Foto hero aparece debajo<br>
+          → Zona NEGRA tras abrirse ⚠️</span>
+        </div>
+
+        <div style="color:#555;text-align:center;font-size:1rem">↓ scroll normal</div>
+
+        <div style="background:#2a1a1a;border:1px solid #6a2a2a;padding:6px;color:#f88">
+          #pasacalles → #espectaculos →<br>
+          #talleres → #nosotros → #contacto
+        </div>
+
+      </div>
+
+      <div style="margin-top:1rem;padding:0.6rem;background:#1a1a0a;border:1px solid #554">
+        <span style="color:#fa8;font-size:0.7rem">⚠️ PROBLEMA ACTUAL</span><br>
+        <span style="color:#888;font-size:0.7rem">Después de que la carpa se abre hay ~100vh de negro. Las secciones de contenido son páginas normales que no tienen relación con la carpa.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPCIÓN B — Lo que describe el prompt -->
+  <div class="mockup" data-choice="b" onclick="toggleSelect(this)" style="cursor:pointer;border:2px solid transparent;transition:border-color .2s" onmouseenter="this.style.borderColor='#888'" onmouseleave="this.style.borderColor='transparent'">
+    <div class="mockup-header" style="background:#2a1a0a;color:#c4993b">LO QUE DESCRIBE TU PROMPT</div>
+    <div class="mockup-body" style="background:#0d0d0d;padding:1rem;font-size:0.8rem">
+
+      <div style="display:flex;flex-direction:column;gap:4px;font-family:monospace;font-size:0.75rem">
+
+        <div style="background:#0d1b2a;border:1px solid #1a3a5a;padding:8px;color:#8af">
+          <strong>FASE 1 — Carpa lejana (0%→25%)</strong><br>
+          <span style="color:#666">Cielo nocturno + estrellas<br>
+          Carpa FRONTAL pequeña (scale 0.35)<br>
+          Dolly-in: se acerca con el scroll</span>
+        </div>
+
+        <div style="color:#c4993b;text-align:center;font-size:0.8rem">↕ scrub continuo (~800vh total)</div>
+
+        <div style="background:#1a0d00;border:1px solid #8b1a1a;padding:8px;color:#f88">
+          <strong>FASE 2 — Puertas se abren (25%→50%)</strong><br>
+          <span style="color:#666">Puerta izq + der con translateX<br>
+          Luz dorada estalla desde dentro<br>
+          Marco de la carpa = frame permanente</span>
+        </div>
+
+        <div style="color:#c4993b;text-align:center;font-size:0.8rem">↕ el marco queda siempre</div>
+
+        <div style="background:#1a1200;border:1px solid #554;padding:8px;color:#fc8">
+          <strong>FASE 3 — Foco teatral (50%→70%)</strong><br>
+          <span style="color:#666">Haz de luz cónico desde arriba<br>
+          Aparece Pasacalles dentro del foco</span>
+        </div>
+
+        <div style="color:#c4993b;text-align:center;font-size:0.8rem">↕ foco se apaga y enciende</div>
+
+        <div style="background:#1a0a0a;border:1px solid #663;padding:8px;color:#fa8">
+          <strong>FASE 4 — Secciones dentro (70%→100%)</strong><br>
+          <span style="color:#666">Espectáculos → Dragona → Talleres →<br>
+          Nosotros + Contacto<br>
+          TODO dentro del marco de la carpa</span>
+        </div>
+
+      </div>
+
+      <div style="margin-top:1rem;padding:0.6rem;background:#0a1a0a;border:1px solid #282">
+        <span style="color:#8f8;font-size:0.7rem">✓ VENTAJA</span><br>
+        <span style="color:#888;font-size:0.7rem">Experiencia cinematográfica completa. El scroll ES la narrativa. Sin secciones "normales" después. La carpa enmarca todo el contenido.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:1.5rem;padding:1rem;background:#1a1a2a;border:1px solid #334;border-radius:4px">
+  <p style="margin:0;color:#aab;font-size:0.85rem">
+    <strong style="color:#ccf">Pregunta clave:</strong> ¿Quieres <strong>reparar y mejorar lo que tenemos</strong> (opción A, cambio menor) o <strong>adoptar la visión del prompt</strong> (opción B, rebuild significativo)?<br>
+    <span style="color:#667;font-size:0.75rem">Nota: el prompt describe una carpa FRONTAL con puertas — nosotros construimos la vista desde arriba (cenital) que pediste antes.</span>
+  </p>
+</div>

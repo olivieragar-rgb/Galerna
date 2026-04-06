@@ -1,0 +1,81 @@
+/* ============================================
+   CÍA LA GALERNA — navegacion.css
+   Nav transparente al inicio → opaca al scroll
+   ============================================ */
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 3.5rem;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+}
+
+#nav.nav-solida {
+  background: rgba(13, 13, 13, 0.96);
+  border-bottom: 1px solid rgba(196, 153, 59, 0.1);
+  padding: 0.9rem 3.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  color: var(--color-crema);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.92;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.nav-logo:hover {
+  opacity: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 230, 200, 0.55);
+  text-decoration: none;
+  transition: color 0.25s;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.nav-links a:hover {
+  color: rgba(245, 230, 200, 0.95);
+}
+
+/* Botón Contacto: pill outlined */
+.nav-links .nav-cta a {
+  padding: 0.38rem 1.2rem;
+  border: 1px solid rgba(196, 153, 59, 0.5);
+  border-radius: 50px;
+  color: var(--color-dorado);
+  text-shadow: none;
+  opacity: 1;
+}
+
+.nav-links .nav-cta a:hover {
+  background: rgba(196, 153, 59, 0.12);
+  color: var(--color-dorado);
+  border-color: var(--color-dorado);
+}
