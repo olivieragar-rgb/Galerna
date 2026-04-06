@@ -276,30 +276,33 @@
   filter: contrast(1.05) brightness(0.85);
 }
 
-/* ---- Tags ---- */
-.talleres-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+/* ---- Lista talleres ---- */
+.talleres-lista {
+  list-style: none;
   margin: 0.2rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
-.tag {
-  padding: 0.3rem 0.9rem;
-  border: 1px solid rgba(139, 26, 26, 0.5);
-  color: rgba(245, 230, 200, 0.7);
+.talleres-lista li {
   font-family: var(--font-body);
-  font-size: 0.67rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border-radius: 50px;
-  background: rgba(139, 26, 26, 0.1);
-  transition: border-color 0.2s, background 0.2s;
+  font-size: 0.78rem;
+  color: rgba(245, 230, 200, 0.6);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  padding-left: 1.2rem;
+  position: relative;
 }
 
-.tag:hover {
-  border-color: rgba(139, 26, 26, 0.9);
-  background: rgba(139, 26, 26, 0.25);
+.talleres-lista li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-dorado);
+  opacity: 0.6;
+  font-size: 1.1em;
 }
 
 /* ================================================
