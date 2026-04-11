@@ -42,6 +42,7 @@
   display: block;
   filter: contrast(1.05) brightness(0.9);
   transition: transform 8s ease-out;
+  will-change: transform;
 }
 
 .sec-media:hover img {
@@ -171,74 +172,6 @@
 }
 
 /* ================================================
-   DRAGONA — vídeo full-bleed
-   ================================================ */
-.seccion-fullvideo {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dragona-video-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.45;
-}
-
-.dragona-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 50% 40%,
-    rgba(60, 10, 40, 0.55) 0%,
-    rgba(5, 5, 8, 0.88) 70%
-  );
-}
-
-.dragona-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.4rem;
-  padding: 6rem 2rem;
-}
-
-.dragona-titulo {
-  color: var(--color-rosa) !important;
-  text-shadow: 0 0 60px rgba(232, 115, 154, 0.3) !important;
-  font-size: clamp(2rem, 5vw, 4rem) !important;
-}
-
-.dragona-etiqueta {
-  color: var(--color-dorado) !important;
-  text-shadow: 0 0 18px rgba(196, 153, 59, 0.5), 0 0 48px rgba(196, 153, 59, 0.18);
-}
-
-.dragona-etiqueta::before,
-.dragona-etiqueta::after {
-  opacity: 0.5;
-  background: var(--color-dorado) !important;
-}
-
-.dragona-divisor {
-  background: linear-gradient(to right, transparent, var(--color-rosa), transparent) !important;
-  width: 80px !important;
-}
-
-.dragona-desc {
-  max-width: 30ch !important;
-  text-align: center;
-}
-
-/* ================================================
    TALLERES — grid con imagen lateral
    ================================================ */
 .seccion-centrada {
@@ -313,6 +246,9 @@
 /* ================================================
    NOSOTROS — Contacto
    ================================================ */
+#nosotros {
+  scroll-margin-top: 70px;
+}
 .contacto-lista {
   display: flex;
   flex-direction: column;
@@ -479,32 +415,6 @@
   box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
 }
 
-/* ================================================
-   DRAGONA — galería de imágenes
-   ================================================ */
-.dragona-galeria {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  width: 100%;
-  max-width: 600px;
-}
-
-.dragona-galeria img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 4px;
-  filter: contrast(1.05) brightness(0.85);
-  transition: transform 0.6s ease, filter 0.4s ease;
-}
-
-.dragona-galeria img:hover {
-  transform: scale(1.04);
-  filter: contrast(1.05) brightness(1);
-}
-
 .contacto-icon {
   color: var(--color-dorado);
   font-size: 0.9rem;
@@ -532,290 +442,7 @@
   .reveal-media  { clip-path: none !important; }
   .reveal-content { opacity: 1 !important; transform: none !important; }
   .reveal-tags .tag { opacity: 1 !important; transform: none !important; }
-  .show-card, .espectaculo-card { opacity: 1 !important; transform: none !important; }
-}
-
-/* ================================================
-   POPUP MODAL — compartido por repertorio y espectáculos
-   ================================================ */
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(5, 5, 5, 0.88);
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s;
-}
-
-.popup-overlay.popup-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.popup-panel {
-  position: relative;
-  max-width: 640px;
-  width: 90vw;
-  max-height: 82vh;
-  overflow-y: auto;
-  background: rgba(18, 15, 10, 0.96);
-  border: 1px solid rgba(196, 153, 59, 0.15);
-  border-radius: 4px;
-  padding: 3rem 2.8rem;
-  transform: translateY(24px);
-  transition: transform 0.4s ease;
-}
-
-.popup-open .popup-panel {
-  transform: translateY(0);
-}
-
-.popup-close {
-  position: absolute;
-  top: 1rem;
-  right: 1.2rem;
-  background: none;
-  border: none;
-  color: rgba(245, 230, 200, 0.4);
-  font-size: 1.6rem;
-  cursor: pointer;
-  transition: color 0.2s;
-  padding: 0.2rem;
-  line-height: 1;
-}
-
-.popup-close:hover {
-  color: var(--color-crema);
-}
-
-.popup-title {
-  font-family: var(--font-display);
-  font-size: clamp(0.85rem, 1.6vw, 1.15rem);
-  color: var(--color-crema);
-  letter-spacing: 0.22em;
-  margin: 0 0 1rem;
-  text-align: center;
-}
-
-.popup-divider {
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--color-dorado), transparent);
-  margin: 0 auto 1.4rem;
-}
-
-.popup-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.popup-list li {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  color: rgba(245, 230, 200, 0.55);
-  line-height: 1.7;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(196, 153, 59, 0.08);
-}
-
-.popup-list li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.popup-list li strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  color: var(--color-crema);
-  letter-spacing: 0.08em;
-  margin-bottom: 0.25rem;
-}
-
-.popup-num {
-  font-family: var(--font-display);
-  font-size: 0.55rem;
-  letter-spacing: 0.35em;
-  color: var(--color-dorado);
-  opacity: 0.45;
-  margin-right: 0.6rem;
-}
-
-.popup-meta {
-  display: block;
-  font-size: 0.65rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--color-dorado);
-  opacity: 0.6;
-  margin-bottom: 0.5rem;
-}
-
-.popup-tecnicas {
-  display: block;
-  font-size: 0.7rem;
-  color: rgba(196, 153, 59, 0.5);
-  margin-top: 0.5rem;
-  letter-spacing: 0.03em;
-}
-
-.popup-footer {
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  color: rgba(245, 230, 200, 0.5);
-  margin: 0;
-}
-
-.popup-footer strong {
-  color: var(--color-dorado);
-  letter-spacing: 0.08em;
-}
-
-.btn-open-popup {
-  cursor: pointer;
-}
-
-/* Scrollbar dentro del popup */
-.popup-panel::-webkit-scrollbar {
-  width: 4px;
-}
-
-.popup-panel::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.popup-panel::-webkit-scrollbar-thumb {
-  background: rgba(196, 153, 59, 0.2);
-  border-radius: 2px;
-}
-
-/* ================================================
-   TRES ESPECTÁCULOS
-   ================================================ */
-.seccion-tres-shows {
-  border-top: 1px solid rgba(196, 153, 59, 0.08);
-}
-
-.espectaculos-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  min-height: 50vh;
-}
-
-.espectaculo-card {
-  padding: 4rem 4vw;
-  border-right: 1px solid rgba(196, 153, 59, 0.1);
-  opacity: 0; /* GSAP revela */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.espectaculo-card:last-child {
-  border-right: none;
-}
-
-.espectaculo-card__dur {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 0.38em;
-  color: var(--color-dorado);
-  opacity: 0.65;
-  text-transform: uppercase;
-}
-
-.espectaculo-card__titulo {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
-  color: var(--color-crema);
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.espectaculo-card__desc {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  color: rgba(245, 230, 200, 0.58);
-  line-height: 1.82;
-  margin: 0;
-  flex: 1;
-}
-
-.espectaculo-card__tecnicas {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  color: rgba(196, 153, 59, 0.55);
-  letter-spacing: 0.04em;
-  line-height: 1.7;
-  border-top: 1px solid rgba(196, 153, 59, 0.12);
-  padding-top: 0.85rem;
-  margin-top: auto;
-}
-
-/* ================================================
-   DRAGONA SPECS Y CRÉDITOS
-   ================================================ */
-.dragona-specs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.1rem 3rem;
-  margin-top: 0.2rem;
-  text-align: left;
-  max-width: 480px;
-  width: 100%;
-}
-
-.dragona-spec-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.dragona-spec-label {
-  font-family: var(--font-body);
-  font-size: 0.57rem;
-  letter-spacing: 0.38em;
-  text-transform: uppercase;
-  color: var(--color-rosa);
-  opacity: 0.62;
-}
-
-.dragona-spec-value {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: rgba(245, 230, 200, 0.7);
-  line-height: 1.5;
-}
-
-.dragona-creditos {
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
-  margin-top: 0.3rem;
-}
-
-.dragona-credito {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  color: rgba(245, 230, 200, 0.38);
-  letter-spacing: 0.04em;
-}
-
-.dragona-credito strong {
-  color: rgba(232, 115, 154, 0.6);
-  font-style: normal;
-  letter-spacing: 0.06em;
+  .show-card { opacity: 1 !important; transform: none !important; }
 }
 
 /* ================================================
@@ -833,7 +460,6 @@
   .sec-content { padding: 3.5rem 8vw; }
   .sec-content-centrado { padding: 3.5rem 8vw; }
   .talleres-imagen { min-height: 280px; }
-  .dragona-content { padding: 4rem 2rem; }
   .seccion[data-color="rojo"] .sec-media::after { display: none; }
 
   /* Nosotros: imagen debajo del texto en móvil */
@@ -849,22 +475,4 @@
   #nosotros .sec-content {
     order: 1;
   }
-
-  /* Espectáculos */
-  .espectaculos-cards { grid-template-columns: 1fr; }
-  .espectaculo-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(196, 153, 59, 0.1);
-  }
-  .espectaculo-card:last-child { border-bottom: none; }
-
-  /* Popup */
-  .popup-panel { padding: 2.4rem 1.6rem; }
-
-  /* Dragona specs */
-  .dragona-specs-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 600px) {
-  .dragona-specs-grid { grid-template-columns: 1fr; }
 }

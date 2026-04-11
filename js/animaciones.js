@@ -241,46 +241,6 @@
       carousel.addEventListener('mouseleave', function () { timer = setInterval(next, autoplayInterval); });
     });
 
-    // Refresh ScrollTrigger after all animations are created
-    // Ensures sections already in view get their animations completed
-    ScrollTrigger.refresh();
-
-    /* ── POPUPS: abrir/cerrar ────────────────────────────── */
-    document.querySelectorAll('.btn-open-popup').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var popup = document.getElementById(btn.dataset.popup);
-        if (popup) {
-          popup.classList.add('popup-open');
-          popup.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
-
-    document.querySelectorAll('.popup-overlay').forEach(function (overlay) {
-      var closeBtn = overlay.querySelector('.popup-close');
-      function closePopup() {
-        overlay.classList.remove('popup-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-      if (closeBtn) closeBtn.addEventListener('click', closePopup);
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closePopup();
-      });
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        var open = document.querySelector('.popup-overlay.popup-open');
-        if (open) {
-          open.classList.remove('popup-open');
-          open.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-        }
-      }
-    });
-
     /* ── Línea divisora entre secciones (fade-in) ─────────── */
     document.querySelectorAll('.sec-divisor').forEach(function (el) {
       gsap.from(el, {
@@ -298,6 +258,17 @@
 
     /* ── Refresh ScrollTrigger tras cargar imágenes ────────── */
     ScrollTrigger.refresh();
+
+    /* ── Scroll al hash si venimos de otra página ──────────── */
+    var hash = window.location.hash;
+    if (hash) {
+      var target = document.querySelector(hash);
+      if (target) {
+        setTimeout(function () {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    }
   });
 
 })();
