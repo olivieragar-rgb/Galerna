@@ -14,6 +14,22 @@
   gap: 1rem;
 }
 
+/* Hero título visible en subpáginas */
+.hero-subpagina .hero-titulo {
+  opacity: 1;
+}
+
+/* Divisor dorado bajo el título en hero de subpáginas */
+.hero-subpagina .hero-titulo + .pagina-divisor {
+  width: 120px;
+  height: 2px;
+  margin: 1.1rem auto 0.7rem auto;
+  background: linear-gradient(to right, transparent, var(--color-dorado), transparent);
+  border: none;
+  display: block;
+}
+}
+
 .hero-subpagina .hero-arrow-down {
   position: relative;
   bottom: auto;
@@ -133,7 +149,8 @@
 .detalle-galeria img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--color-negro);
   display: block;
   filter: contrast(1.05) brightness(0.88);
   transition: transform 0.6s ease, filter 0.4s ease;
@@ -154,7 +171,6 @@
 /* Odd last image: span full width */
 .detalle-galeria img:nth-child(odd):last-child:not(:only-child) {
   grid-column: 1 / -1;
-  max-height: 350px;
 }
 
 /* Grande: 3 columns instead of 2 */
@@ -165,6 +181,27 @@
 .detalle-galeria-grande img:nth-child(odd):last-child:not(:only-child) {
   grid-column: auto;
   max-height: none;
+}
+
+/* ── Carousel inside galería ──────────────────── */
+.detalle-carousel {
+  display: block;
+  min-height: 420px;
+}
+
+.detalle-carousel .carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+.detalle-carousel .carousel-slide img {
+  filter: contrast(1.05) brightness(0.88);
+}
+
+.detalle-carousel .carousel-slide img:hover {
+  filter: contrast(1.05) brightness(1);
 }
 
 /* ── Info panel ───────────────────────────────── */
@@ -347,6 +384,15 @@
     max-height: 60vh;
   }
 
+  .detalle-carousel {
+    max-height: none;
+    min-height: 320px;
+  }
+
+  .detalle-carousel .carousel {
+    min-height: 320px;
+  }
+
   .detalle-galeria-grande {
     grid-template-columns: 1fr 1fr;
   }
@@ -375,12 +421,14 @@
   }
 
   .detalle-galeria img {
-    min-height: 220px;
-    max-height: 300px;
+    min-height: 200px;
+    max-height: none;
+    object-fit: contain;
+    background: var(--color-negro);
   }
 
   .detalle-galeria img:only-child {
-    min-height: 280px;
+    min-height: 240px;
   }
 
   .detalle-info {

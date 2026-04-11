@@ -313,10 +313,11 @@
 .carousel-slide video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   display: block;
   filter: contrast(1.05) brightness(0.9);
+  background: var(--color-negro);
 }
 
 .carousel-dots {

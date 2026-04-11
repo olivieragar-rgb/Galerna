@@ -27,7 +27,7 @@
         setTimeout(function () {
           heroVideo.pause();
         }, 2200);
-      }, 5000);
+      }, 10000);
     })();
 
     /* ── HERO: entrada cinética al cargar ──────────────────── */
