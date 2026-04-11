@@ -153,69 +153,29 @@
       );
     }
 
+    /* ── CIRCO Y TEATRO ──────────────────────────────────── */
+    const circoMedia = document.querySelector('#circo-teatro .reveal-media');
+    const circoContent = document.querySelector('#circo-teatro .reveal-content');
+    if (circoMedia) revealMedia(circoMedia, 0);
+    if (circoContent) revealContent(circoContent, 0.2);
+
     /* ── PASACALLES ────────────────────────────────────────── */
     const pasaMedia = document.querySelector('#pasacalles .reveal-media');
     const pasaContent = document.querySelector('#pasacalles .reveal-content');
     if (pasaMedia) revealMedia(pasaMedia, 0);
     if (pasaContent) revealContent(pasaContent, 0.2);
 
-    /* ── ESPECTÁCULOS ──────────────────────────────────────── */
-    const especMedia = document.querySelector('#espectaculos .reveal-media');
-    const especContent = document.querySelector('#espectaculos .reveal-content');
-    if (especMedia) revealMedia(especMedia, 0);
-    if (especContent) revealContent(especContent, 0.25);
+    /* ── MARIONETAS ───────────────────────────────────────── */
+    const marioMedia = document.querySelector('#marionetas .reveal-media');
+    const marioContent = document.querySelector('#marionetas .reveal-content');
+    if (marioMedia) revealMedia(marioMedia, 0);
+    if (marioContent) revealContent(marioContent, 0.2);
 
-    /* ── DRAGONA: entrada dramática ────────────────────────── */
-    const dragonaContent = document.querySelector('#dragona .reveal-content');
-    if (dragonaContent) {
-      gsap.to(dragonaContent, {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: dragonaContent,
-          start: 'top 75%',
-          toggleActions: 'play none none none',
-        },
-      });
-    }
-
-    // Pulso lento en el vídeo de fondo de La Dragona
-    const dragonaBg = document.querySelector('.dragona-video-bg');
-    if (dragonaBg) {
-      gsap.fromTo(dragonaBg,
-        { opacity: 0.3 },
-        {
-          opacity: 0.55,
-          duration: 3,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        }
-      );
-    }
-
-    /* ── TALLERES: stagger de tags ─────────────────────────── */
+    /* ── TALLERES ──────────────────────────────────────────── */
+    const talleresMedia = document.querySelector('#talleres .reveal-media');
+    if (talleresMedia) revealMedia(talleresMedia, 0);
     const talleresContent = document.querySelector('#talleres .reveal-content');
-    const tags = document.querySelectorAll('#talleres .reveal-tags .tag');
-    if (talleresContent) revealContent(talleresContent, 0);
-    if (tags.length) {
-      gsap.to(tags, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.07,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '#talleres .reveal-tags',
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      });
-    }
-    const talleresImg = document.querySelector('#talleres .reveal-media');
-    if (talleresImg) revealMedia(talleresImg, 0.15);
+    if (talleresContent) revealContent(talleresContent, 0.2);
 
     /* ── NOSOTROS ──────────────────────────────────────────── */
     const nosotrosMedia = document.querySelector('#nosotros .reveal-media');
@@ -223,27 +183,6 @@
     if (nosotrosMedia) revealMedia(nosotrosMedia, 0);
     if (nosotrosMedia) parallaxMedia(nosotrosMedia);
     if (nosotrosContent) revealContent(nosotrosContent, 0.25);
-
-    /* ── DRAGONA: galería de imágenes stagger ──────────────── */
-    const dragonaImgs = document.querySelectorAll('.dragona-galeria img');
-    if (dragonaImgs.length) {
-      gsap.fromTo(dragonaImgs,
-        { opacity: 0, y: 40, scale: 0.92 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          stagger: 0.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.dragona-galeria',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
 
     /* ── CARRUSELES: inicialización automática ─────────────── */
     document.querySelectorAll('.carousel').forEach(function (carousel) {
@@ -301,6 +240,10 @@
       carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
       carousel.addEventListener('mouseleave', function () { timer = setInterval(next, autoplayInterval); });
     });
+
+    // Refresh ScrollTrigger after all animations are created
+    // Ensures sections already in view get their animations completed
+    ScrollTrigger.refresh();
 
     /* ── POPUPS: abrir/cerrar ────────────────────────────── */
     document.querySelectorAll('.btn-open-popup').forEach(function (btn) {

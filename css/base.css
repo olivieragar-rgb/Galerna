@@ -10,7 +10,12 @@
 
 html {
   /* Sin scroll-behavior: lo maneja GSAP */
-  font-size: 16px;
+  font-size: 18px;
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 body {
@@ -69,14 +74,14 @@ ul {
 /* Tablet */
 @media (max-width: 1024px) {
   :root {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   :root {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   body {

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasacalles | Cía La Galerna</title>
+  <meta name="description" content="Más de diez espectáculos de pasacalles: zancos, bufones, vikingos, seres del bosque, La Dragona y más. Circo de calle en Granada.">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/navegacion.css">
+  <link rel="stylesheet" href="css/secciones.css">
+  <link rel="stylesheet" href="css/detalle.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/navegacion.js" defer></script>
+  <script src="js/detalle.js" defer></script>
+</head>
+<body>
+
+  <nav id="nav" class="nav-solida" aria-label="Navegación principal">
+    <a href="index.html" class="nav-logo">Cía La Galerna</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="circo-teatro.html">Circo y Teatro</a></li>
+      <li><a href="pasacalles.html">Pasacalles</a></li>
+      <li><a href="marionetas.html">Marionetas</a></li>
+      <li><a href="talleres.html">Talleres</a></li>
+      <li><a href="index.html#nosotros">Nosotros</a></li>
+      <li class="nav-cta"><a href="index.html#nosotros">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================================================
+       HERO: Vídeo pasacalles
+       ================================================ -->
+  <section id="hero" class="hero-subpagina">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/images/pasacalles/Heroe_Pasacalle.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="sec-etiqueta">Animación callejera</span>
+      <h1 class="hero-titulo">
+        <span class="titulo-line">PASACALLES</span>
+      </h1>
+      <p class="hero-subtitulo">Más de diez espectáculos itinerantes con narrativa propia</p>
+      <a href="#pasacalles-inicio" class="hero-arrow-down" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="rgba(245,230,200,0.35)" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================================================
+       CABECERA DE PÁGINA
+       ================================================ -->
+  <header id="pasacalles-inicio" class="pagina-cabecera pagina-cabecera-destacada">
+    <div class="sec-divisor pagina-divisor"></div>
+    <p class="pagina-intro-grande">Animación itinerante de circo y teatro donde la fantasía cobra vida a cada paso. Nuestros espectáculos combinan personajes únicos, calidad teatral y virtuosos números circenses, acompañados de música e interacción con el público para crear experiencias llenas de color, humor y emoción.</p>
+    <p class="pagina-intro-grande">Adaptamos cada pasacalles a distintas estéticas: medieval, circense, árabe, marinera o pirata, vikinga o personalizada para tu evento.</p>
+    <div class="sec-divisor pagina-divisor"></div>
+  </header>
+
+  <!-- ================================================
+       PASACALLES CON NARRATIVA
+       ================================================ -->
+
+  <!-- Baile en Zancos -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/BAILE%20EN%20ZANCOS/Baile_Zancos_Granada%20(1).jpeg"
+           alt="Baile en zancos" loading="lazy"/>
+      <img src="assets/images/pasacalles/BAILE%20EN%20ZANCOS/Baile_Zancos_Granada%20(2).jpeg"
+           alt="Baile en zancos — agilidad" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Baile en Zancos</h2>
+      <p class="detalle-desc">Un espectáculo de destreza en zancos con una agilidad asombrosa y un desafío a la gravedad en cada giro. Sus movimientos precisos y llenos de elegancia deslumbran a todos los presentes.</p>
+    </div>
+  </section>
+
+  <!-- El Zancudo y la Marioneta -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/ZANCUDOMARIOTENA/Circo_Zancudo_Marioneta%20(1).jpeg"
+           alt="El Zancudo y la Marioneta" loading="lazy"/>
+      <img src="assets/images/pasacalles/ZANCUDOMARIOTENA/Circo_Zancudo_Marioneta%20(2).jpeg"
+           alt="Marioneta humana con hilos" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">El Zancudo y la Marioneta</h2>
+      <p class="detalle-desc">Un zancudo maneja una marioneta humana con hilos, creando un espectáculo visual sorprendente y mágico lleno de fantasía y teatralidad.</p>
+    </div>
+  </section>
+
+  <!-- Bufones Malabaristas -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/MALABARISTAS/Malabaratista_Granada%20(1).jpeg"
+           alt="Bufones malabaristas" loading="lazy"/>
+      <img src="assets/images/pasacalles/MALABARISTAS/Malabaratista_Granada%20(2).jpeg"
+           alt="Malabares medievales" loading="lazy"/>
+      <img src="assets/images/pasacalles/MALABARISTAS/WhatsApp%20Image%202026-04-07%20at%2000.47.22%20(1).jpeg"
+           alt="Bufones en acción" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Bufones Malabaristas</h2>
+      <p class="detalle-desc">Dos bufones medievales recorren los caminos con su casa hecha pedazos. Él, bello y virtuoso malabarista, nace para el aplauso; ella, torpe y sin talento, intenta hacerse valer. Entre rivalidad y risas descubren que juntos sobreviven mejor.</p>
+    </div>
+  </section>
+
+  <!-- Seres del Bosque -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/SERESDELBOSQUE/SERES%20DEL%20BOSQUE%20(1).jpeg"
+           alt="Seres del Bosque" loading="lazy"/>
+      <img src="assets/images/pasacalles/SERESDELBOSQUE/SERES%20DEL%20BOSQUE%20(2).jpeg"
+           alt="Criaturas mitológicas" loading="lazy"/>
+      <img src="assets/images/pasacalles/SERESDELBOSQUE/SERES%20DEL%20BOSQUE%20(3).jpeg"
+           alt="Carro con raíces y musgo" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Seres del Bosque</h2>
+      <p class="detalle-desc">Un pasacalles mágico donde la naturaleza cobra vida. Majestuosas criaturas mitológicas desfilan entre el público arrastrando un imponente carro a escala real adornado con raíces, musgo y luces místicas, fusionando fantasía y naturaleza en un espectáculo visual impresionante.</p>
+    </div>
+  </section>
+
+  <!-- Vikingos Acrobáticos -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/VIKINGOS/Circo_Vikingos%20(1).jpeg"
+           alt="Vikingos acrobáticos" loading="lazy"/>
+      <img src="assets/images/pasacalles/VIKINGOS/Circo_Vikingos%20(2).jpeg"
+           alt="Vikingos en acción" loading="lazy"/>
+      <img src="assets/images/pasacalles/VIKINGOS/Circo_Vikingos%20(3).jpeg"
+           alt="Acrobacias vikingas" loading="lazy"/>
+      <img src="assets/images/pasacalles/VIKINGOS/WhatsApp%20Image%202026-04-07%20at%2000.47.22%20(2).jpeg"
+           alt="Vikingos — fuerza" loading="lazy"/>
+      <img src="assets/images/pasacalles/VIKINGOS/WhatsApp%20Image%202026-04-07%20at%2000.47.22%20(3).jpeg"
+           alt="Vikingos — destreza" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Vikingos Acrobáticos</h2>
+      <p class="detalle-desc">Un pasacalles vibrante donde dos personajes vikingos combinan su destreza y su fuerza con movimientos acrobáticos cargados de energía.</p>
+    </div>
+  </section>
+
+  <!-- Los Goliardos -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/LOSGOLIARDOS/Circo_Teatro_Granada%20(1).jpeg"
+           alt="Los Goliardos" loading="lazy"/>
+      <img src="assets/images/pasacalles/LOSGOLIARDOS/Circo_Teatro_Granada%20(2).jpeg"
+           alt="Goliardos medievales" loading="lazy"/>
+      <img src="assets/images/pasacalles/LOSGOLIARDOS/Circo_Teatro_Granada%20(3).jpeg"
+           alt="Humor irreverente" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Los Goliardos</h2>
+      <p class="detalle-desc">Una explosión de locura y jolgorio que invaden las calles con una energía desbordante. Estos desenfrenados e irreverentes personajes harán de las calles una fiesta caótica.</p>
+      <div class="detalle-video">
+        <video controls preload="metadata" poster="assets/images/pasacalles/LOSGOLIARDOS/Circo_Teatro_Granada%20(1).jpeg">
+          <source src="assets/images/pasacalles/LOSGOLIARDOS/Video_Goliardos.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- El Capitán y su Escudera -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/CAPITANESCUDERA/Circo_Granada_CapitanEscudera%20(1).jpeg"
+           alt="El Capitán y su Escudera" loading="lazy"/>
+      <img src="assets/images/pasacalles/CAPITANESCUDERA/Circo_Granada_CapitanEscudera%20(2).jpeg"
+           alt="Capitán fanfarrón" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">El Capitán y su Escudera</h2>
+      <p class="detalle-desc">Un capitán fanfarrón y torpe y su escudera astuta pero peculiar, desfilan entre la gente. Mientras el primero presume de hazañas ridículas, la segunda lo ridiculiza con ingeniosas burlas, desatando las risas entre las multitudes.</p>
+    </div>
+  </section>
+
+  <!-- La Bestia y su Domadora -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/BESTIADOMADORA/Bestia_Domadora%20(1).jpeg"
+           alt="La Bestia y su Domadora" loading="lazy"/>
+      <img src="assets/images/pasacalles/BESTIADOMADORA/Bestia_Domadora%20(2).jpeg"
+           alt="Domadora valiente" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">La Bestia y su Domadora</h2>
+      <p class="detalle-desc">El gigante de las sombras, cuyos pasos hacen temblar la tierra, pero... ¡no temáis! pues a su lado marcha su valiente domadora con un coraje de acero, ¿podrá mantener a raya a la bestia o se desatará el caos en la villa? Abrid paso y contemplad el espectáculo...</p>
+    </div>
+  </section>
+
+  <!-- Los Caminantes Blancos -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/CAMINANTESBLANCOS/Circo_Granada_CaminanteBlanco.jpeg"
+           alt="Los Caminantes Blancos" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Los Caminantes Blancos</h2>
+      <p class="detalle-desc">Mágicos seres orientales salen del interior de las cuevas del desierto para asombrar a la gente con su magia coreográfica.</p>
+    </div>
+  </section>
+
+  <!-- El Rey de los Bufones -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/REYBUFONES/circo_Granada_Reybufones%20(1).jpeg"
+           alt="El Rey de los Bufones" loading="lazy"/>
+      <img src="assets/images/pasacalles/REYBUFONES/circo_Granada_Reybufones%20(2).jpeg"
+           alt="Rey de los Bufones — carisma" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">El Rey de los Bufones</h2>
+      <p class="detalle-desc">Una mujer gitana pasea con su desagraciado hermano, nombrado por el duque: El rey de los bufones, mostrando al público su fealdad y sus deformidades, mientras ella acompaña la exhibición con un hermoso baile.</p>
+    </div>
+  </section>
+
+  <!-- La Dragona (Especial) -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/Dragona.JPG"
+           alt="La Dragona — espectáculo" loading="lazy"/>
+      <img src="assets/images/disfraces%20dragona.JPG"
+           alt="Disfraces de La Dragona" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">La Dragona <span class="detalle-badge">Próximamente</span></h2>
+      <p class="detalle-desc">Un pasacalles grandioso e inolvidable: una dragona gigante despierta y avanza entre las calles. A sus lomos, una entrenadora guía sus pasos. La dragona bate sus enormes alas, parpadea, ruge y exhala humo por su boca, envolviendo al público en un halo de magia y misterio. Un pasacalles único, de gran calidad artística, donde la majestuosidad y belleza de la dragona junto con los increíbles vestuarios de sus entrenadores transformarán las calles en un reino legendario.</p>
+      <p class="detalle-desc detalle-proximamente">Este espectáculo está actualmente en producción. ¡Próximamente disponible!</p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       ESTÉTICAS VISUALES
+       ================================================ -->
+  <div class="esteticas-separador">
+    <span class="sec-etiqueta">Estéticas visuales</span>
+    <h2 class="pagina-titulo pagina-titulo-sm">PASACALLES POR ESTÉTICA</h2>
+    <div class="sec-divisor pagina-divisor"></div>
+    <p class="pagina-intro">Además de los espectáculos con narrativa, la compañía dispone de pasacalles categorizados por su estética visual.</p>
+  </div>
+
+  <!-- Estética Medieval -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria detalle-galeria-grande">
+      <img src="assets/images/pasacalles/Medieval/WhatsApp%20Image%202026-04-07%20at%2001.02.03.jpeg"
+           alt="Estética Medieval" loading="lazy"/>
+      <img src="assets/images/pasacalles/Medieval/WhatsApp%20Image%202026-04-07%20at%2001.02.12.jpeg"
+           alt="Medieval — bufones" loading="lazy"/>
+      <img src="assets/images/pasacalles/Medieval/WhatsApp%20Image%202026-04-07%20at%2001.02.13.jpeg"
+           alt="Medieval — recorrido" loading="lazy"/>
+      <img src="assets/images/pasacalles/Medieval/WhatsApp%20Image%202026-04-07%20at%2001.02.49.jpeg"
+           alt="Medieval — espectáculo" loading="lazy"/>
+      <img src="assets/images/pasacalles/Medieval/WhatsApp%20Image%202026-04-07%20at%2001.02.50%20(1).jpeg"
+           alt="Medieval — desfile" loading="lazy"/>
+      <img src="assets/images/pasacalles/Medieval/WhatsApp%20Image%202026-04-07%20at%2001.02.50.jpeg"
+           alt="Medieval — ambiente" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Estética Medieval</h2>
+      <p class="detalle-desc">Bufones, caballeros y personajes de época. Ideal para mercados medievales y fiestas temáticas.</p>
+    </div>
+  </section>
+
+  <!-- Estética Pirata -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/Estetica%20Pirata/Circo_Granada_Piratas%20(1).jpeg"
+           alt="Estética Pirata" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Pirata/Circo_Granada_Piratas%20(2).jpeg"
+           alt="Piratas — abordaje" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Pirata/Circo_Granada_Piratas%20(3).jpeg"
+           alt="Piratas — aventura" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Pirata/Circo_Granada_Piratas%20(4).jpeg"
+           alt="Piratas — espectáculo" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Estética Pirata</h2>
+      <p class="detalle-desc">Aventureros de los mares con acrobacias y humor. Perfecto para fiestas y eventos temáticos.</p>
+    </div>
+  </section>
+
+  <!-- Estética Circense -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria">
+      <img src="assets/images/pasacalles/Estetica%20Circense/sergio-chaqueta-roja.jpeg"
+           alt="Estética Circense" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Circense/WhatsApp%20Image%202026-04-07%20at%2001.08.47.jpeg"
+           alt="Circense — espectáculo" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Circense/WhatsApp%20Image%202026-04-07%20at%2001.08.52.jpeg"
+           alt="Circense — animación" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Circense/WhatsApp%20Image%202026-04-07%20at%2001.09.08.jpeg"
+           alt="Circense — calle" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Circense/WhatsApp%20Image%202026-04-07%20at%2001.12.01.jpeg"
+           alt="Circense — interacción" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Estética Circense</h2>
+      <p class="detalle-desc">El circo clásico llevado a la calle. Color, magia y destreza en cada paso del recorrido.</p>
+    </div>
+  </section>
+
+  <!-- Estética Romana -->
+  <section class="detalle-seccion detalle-invertida">
+    <div class="detalle-galeria detalle-galeria-grande">
+      <img src="assets/images/pasacalles/Estetica%20Romana/WhatsApp%20Image%202026-04-07%20at%2001.20.12.jpeg"
+           alt="Estética Romana" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Romana/WhatsApp%20Image%202026-04-07%20at%2001.20.19.jpeg"
+           alt="Romana — gladiadores" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Romana/WhatsApp%20Image%202026-04-07%20at%2001.20.20%20(1).jpeg"
+           alt="Romana — desfile" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Romana/WhatsApp%20Image%202026-04-07%20at%2001.20.20%20(2).jpeg"
+           alt="Romana — espectáculo" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Romana/WhatsApp%20Image%202026-04-07%20at%2001.20.20%20(3).jpeg"
+           alt="Romana — arte callejero" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Romana/WhatsApp%20Image%202026-04-07%20at%2001.20.20.jpeg"
+           alt="Romana — ambiente" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Estética Romana</h2>
+      <p class="detalle-desc">Gladiadores y emperadores con acrobacias de impacto. Para recreaciones históricas y eventos épicos.</p>
+    </div>
+  </section>
+
+  <!-- Estética Árabe -->
+  <section class="detalle-seccion">
+    <div class="detalle-galeria detalle-galeria-grande">
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.31.jpeg"
+           alt="Estética Árabe" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.38.jpeg"
+           alt="Árabe — danza" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.44%20(1).jpeg"
+           alt="Árabe — espectáculo" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.44%20(2).jpeg"
+           alt="Árabe — desfile" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.44%20(3).jpeg"
+           alt="Árabe — interacción" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.44.jpeg"
+           alt="Árabe — ambiente" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.45%20(1).jpeg"
+           alt="Árabe — detalles" loading="lazy"/>
+      <img src="assets/images/pasacalles/Estetica%20Arabe/WhatsApp%20Image%202026-04-07%20at%2001.19.45.jpeg"
+           alt="Árabe — vestuario" loading="lazy"/>
+    </div>
+    <div class="detalle-info">
+      <h2 class="detalle-nombre">Estética Árabe</h2>
+      <p class="detalle-desc">Magia oriental con vestuario exótico y movimientos hipnóticos. Para mercados árabes y eventos culturales.</p>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <div class="pagina-cta-final">
+    <p class="pagina-cta-texto">¿Quieres contratar un pasacalles?</p>
+    <a href="https://wa.me/34665304906?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20los%20pasacalles%20para%20un%20evento.%20%C2%A1Gracias!" class="sec-cta" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    <a href="index.html" class="sec-cta">Volver al inicio</a>
+  </div>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/34665304906" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.129 6.742 3.047 9.379l-1.994 5.95 6.145-1.963A15.89 15.89 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.335 22.594c-.393 1.107-1.943 2.027-3.191 2.295-.852.181-1.963.326-5.707-1.227-4.791-1.986-7.873-6.842-8.113-7.16-.229-.316-1.928-2.568-1.928-4.896 0-2.33 1.221-3.475 1.656-3.949.393-.428 1.047-.625 1.674-.625.199 0 .381.01.543.018.434.018.652.043.938.727.357.852 1.227 2.994 1.334 3.213.107.219.217.516.068.818-.139.311-.26.449-.479.697-.219.248-.428.439-.647.707-.199.23-.422.479-.174.912.248.434 1.104 1.818 2.371 2.945 1.631 1.451 3.004 1.9 3.428 2.109.326.162.715.131.973-.139.326-.344.729-.916 1.137-1.48.293-.404.66-.455 1.018-.311.363.139 2.299 1.084 2.693 1.281.393.199.656.295.752.459.094.164.094.951-.299 2.061z"/></svg>
+  </a>
+
+  <footer id="footer">
+    <p class="footer-texto">© 2024 Cía La Galerna · Granada</p>
+    <p class="footer-frase">—— El espectáculo empieza donde tú estés ——</p>
+  </footer>
+
+</body>
+</html>

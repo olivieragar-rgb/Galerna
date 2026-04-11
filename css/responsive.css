@@ -53,7 +53,7 @@
   }
 
   .nav-links a {
-    font-size: 0.6rem;
+    font-size: 0.72rem;
     letter-spacing: 0.2em;
   }
 }
@@ -107,7 +107,7 @@
   }
 
   .nav-links a {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     letter-spacing: 0.22em;
   }
 
@@ -169,11 +169,11 @@
   }
 
   .sec-titulo {
-    font-size: clamp(1.4rem, 7vw, 2.2rem);
+    font-size: clamp(1.6rem, 8vw, 2.6rem);
   }
 
   .sec-descripcion {
-    font-size: 0.78rem;
+    font-size: 0.95rem;
   }
 
   /* Carousel: softer edge blur on mobile */
@@ -228,7 +228,7 @@
 
   /* Talleres list */
   .talleres-lista li {
-    font-size: 0.75rem;
+    font-size: 0.88rem;
   }
 
   /* Contacto / nosotros */
@@ -237,7 +237,7 @@
   }
 
   .contacto-item {
-    font-size: 0.75rem;
+    font-size: 0.88rem;
   }
 
   /* WhatsApp float: avoid overlap with content */

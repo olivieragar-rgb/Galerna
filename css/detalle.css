@@ -1,0 +1,405 @@
+/* ============================================
+   CÍA LA GALERNA — detalle.css
+   Estilos para las páginas de detalle
+   (circo-teatro, pasacalles, marionetas)
+   ============================================ */
+
+/* ── Hero en subpáginas ───────────────────────── */
+.hero-subpagina {
+  height: 70vh;
+  min-height: 400px;
+}
+
+.hero-subpagina .hero-content {
+  gap: 1rem;
+}
+
+.hero-subpagina .hero-arrow-down {
+  position: relative;
+  bottom: auto;
+  margin-top: 1.5rem;
+}
+
+/* ── Cabecera de página ───────────────────────── */
+.pagina-cabecera {
+  padding: 10rem 6vw 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--color-negro);
+}
+
+.pagina-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  color: var(--color-crema);
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.pagina-titulo-sm {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.pagina-divisor {
+  width: 80px;
+  background: linear-gradient(to right, transparent, var(--color-dorado), transparent);
+}
+
+.pagina-intro {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: rgba(245, 230, 200, 0.72);
+  line-height: 1.8;
+  max-width: 56ch;
+  text-align: center;
+}
+
+/* Intro destacada — texto grande con bordura */
+.pagina-cabecera-destacada {
+  padding: 5rem 8vw 4rem;
+  border-top: 1px solid rgba(196, 30, 30, 0.12);
+}
+
+.pagina-intro-grande {
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  color: rgba(245, 230, 200, 0.82);
+  line-height: 2;
+  max-width: 62ch;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Secciones de detalle ─────────────────────── */
+.detalle-seccion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: auto;
+  background: var(--color-negro);
+  border-top: 1px solid rgba(196, 30, 30, 0.15);
+}
+
+.detalle-invertida {
+  direction: rtl;
+}
+
+.detalle-invertida > * {
+  direction: ltr;
+}
+
+/* ── Galería de imágenes ──────────────────────── */
+.detalle-galeria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.detalle-galeria::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow:
+    inset  20px  0 20px -8px var(--color-negro),
+    inset -20px  0 20px -8px var(--color-negro),
+    inset  0  20px 20px -8px var(--color-negro),
+    inset  0 -20px 20px -8px var(--color-negro);
+}
+
+/* Red accent line between gallery and info */
+.detalle-seccion .detalle-galeria::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  right: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(196, 30, 30, 0.6), transparent);
+  z-index: 3;
+}
+
+.detalle-invertida .detalle-galeria::before {
+  right: auto;
+  left: 0;
+}
+
+.detalle-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) brightness(0.88);
+  transition: transform 0.6s ease, filter 0.4s ease;
+  min-height: 200px;
+}
+
+.detalle-galeria img:hover {
+  transform: scale(1.04);
+  filter: contrast(1.05) brightness(1);
+}
+
+/* Single image: span full width */
+.detalle-galeria img:only-child {
+  grid-column: 1 / -1;
+  min-height: 400px;
+}
+
+/* Odd last image: span full width */
+.detalle-galeria img:nth-child(odd):last-child:not(:only-child) {
+  grid-column: 1 / -1;
+  max-height: 350px;
+}
+
+/* Grande: 3 columns instead of 2 */
+.detalle-galeria-grande {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.detalle-galeria-grande img:nth-child(odd):last-child:not(:only-child) {
+  grid-column: auto;
+  max-height: none;
+}
+
+/* ── Info panel ───────────────────────────────── */
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5vw;
+  gap: 1.2rem;
+  background: var(--color-negro);
+}
+
+.detalle-nombre {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  color: var(--color-crema);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.detalle-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  border: 1px solid rgba(196, 153, 59, 0.4);
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.detalle-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.detalle-meta span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-dorado);
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+
+.detalle-desc {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: rgba(245, 230, 200, 0.72);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 50ch;
+}
+
+/* ── Técnicas tags ────────────────────────────── */
+.detalle-tecnicas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detalle-tecnicas span {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(245, 230, 200, 0.55);
+  padding: 0.3rem 0.9rem;
+  border: 1px solid rgba(245, 230, 200, 0.12);
+  border-radius: 50px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Créditos ─────────────────────────────────── */
+.detalle-proximamente {
+  color: var(--color-dorado);
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.detalle-creditos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.detalle-creditos p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(245, 230, 200, 0.55);
+  margin: 0;
+}
+
+.detalle-creditos strong {
+  color: rgba(245, 230, 200, 0.7);
+}
+
+/* ── Video inline ─────────────────────────────── */
+.detalle-video {
+  margin-top: 0.5rem;
+}
+
+.detalle-video video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 230, 200, 0.08);
+}
+
+/* ── Separador de sección ─────────────────────── */
+.esteticas-separador {
+  padding: 6rem 6vw 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--color-negro);
+  border-top: 1px solid rgba(196, 153, 59, 0.15);
+}
+
+/* ── CTA final ────────────────────────────────── */
+.pagina-cta-final {
+  padding: 5rem 6vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--color-negro);
+  border-top: 1px solid rgba(196, 30, 30, 0.15);
+}
+
+.pagina-cta-texto {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--color-crema);
+  letter-spacing: 0.1em;
+}
+
+/* ── Footer en páginas detalle ────────────────── */
+#footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--color-negro);
+  border-top: 1px solid rgba(245, 230, 200, 0.06);
+}
+
+.footer-texto {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(245, 230, 200, 0.3);
+  letter-spacing: 0.15em;
+}
+
+.footer-frase {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: rgba(245, 230, 200, 0.18);
+  margin-top: 0.5rem;
+}
+
+/* ================================================
+   RESPONSIVE — Páginas de detalle
+   ================================================ */
+@media (max-width: 900px) {
+  .detalle-seccion {
+    grid-template-columns: 1fr;
+  }
+
+  .detalle-invertida {
+    direction: ltr;
+  }
+
+  .detalle-galeria {
+    max-height: 60vh;
+  }
+
+  .detalle-galeria-grande {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .detalle-galeria::before {
+    display: none;
+  }
+
+  .detalle-info {
+    padding: 3rem 6vw;
+  }
+
+  .pagina-cabecera {
+    padding: 8rem 5vw 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .detalle-galeria {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+
+  .detalle-galeria-grande {
+    grid-template-columns: 1fr;
+  }
+
+  .detalle-galeria img {
+    min-height: 220px;
+    max-height: 300px;
+  }
+
+  .detalle-galeria img:only-child {
+    min-height: 280px;
+  }
+
+  .detalle-info {
+    padding: 2.5rem 5vw;
+  }
+
+  .pagina-cabecera {
+    padding: 7rem 5vw 2.5rem;
+  }
+
+  .pagina-titulo {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  .detalle-nombre {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .pagina-cta-final {
+    padding: 3rem 5vw;
+  }
+}

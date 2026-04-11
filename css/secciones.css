@@ -65,8 +65,8 @@
     inset  0 -30px 28px -8px var(--color-negro);
 }
 
-/* Línea de acento vertical en imágenes de secciones rojas */
-.seccion[data-color="rojo"] .sec-media::after {
+/* Línea de acento vertical en imágenes de todas las secciones */
+.seccion .sec-media::after {
   content: "";
   position: absolute;
   top: 15%;
@@ -74,7 +74,12 @@
   right: 0;
   width: 2px;
   background: linear-gradient(to bottom, transparent, rgba(196, 30, 30, 0.6), transparent);
-  z-index: 1;
+  z-index: 3;
+}
+
+.seccion-invertida .sec-media::after {
+  right: auto;
+  left: 0;
 }
 
 /* ---- Texto / contenido ---- */
@@ -94,7 +99,7 @@
 /* ---- Etiqueta ---- */
 .sec-etiqueta {
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   letter-spacing: 0.45em;
   text-transform: uppercase;
   color: var(--color-dorado);
@@ -116,7 +121,7 @@
 /* ---- Título ---- */
 .sec-titulo {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
   color: var(--color-crema);
   line-height: 1.1;
   letter-spacing: 0.1em;
@@ -135,21 +140,21 @@
 /* ---- Descripción ---- */
 .sec-descripcion {
   font-family: var(--font-body);
-  font-size: clamp(0.85rem, 1.1vw, 1rem);
-  color: rgba(245, 230, 200, 0.65);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: rgba(245, 230, 200, 0.72);
   line-height: 1.8;
   margin: 0;
-  max-width: 42ch;
+  max-width: 48ch;
 }
 
 /* ---- CTA ---- */
 .sec-cta {
   display: inline-block;
-  padding: 0.6rem 2rem;
+  padding: 0.7rem 2.2rem;
   border: 1px solid rgba(196, 153, 59, 0.55);
   color: var(--color-dorado);
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   text-decoration: none;
@@ -288,10 +293,10 @@
 
 .talleres-lista li {
   font-family: var(--font-body);
-  font-size: 0.78rem;
-  color: rgba(245, 230, 200, 0.6);
+  font-size: 0.95rem;
+  color: rgba(245, 230, 200, 0.65);
   letter-spacing: 0.06em;
-  line-height: 1.5;
+  line-height: 1.6;
   padding-left: 1.2rem;
   position: relative;
 }
@@ -319,9 +324,9 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: rgba(245, 230, 200, 0.6);
+  color: rgba(245, 230, 200, 0.65);
   font-family: var(--font-body);
-  font-size: 0.86rem;
+  font-size: 1rem;
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.2s;
