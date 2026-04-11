@@ -37,6 +37,7 @@
   transition: opacity 0.3s;
   white-space: nowrap;
   flex-shrink: 0;
+  user-select: none;
 }
 
 .nav-logo:hover {
